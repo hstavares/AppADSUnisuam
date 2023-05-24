@@ -19,7 +19,7 @@ namespace AppWebUnisuam.Controllers
             _context = context;
         }
 
-        // GET: Cadastro
+        // GET: Cadastroes
         public async Task<IActionResult> Index()
         {
               return _context.Cadastro != null ? 
@@ -27,7 +27,7 @@ namespace AppWebUnisuam.Controllers
                           Problem("Entity set 'AppWebUnisuamContext.Cadastro'  is null.");
         }
 
-        // GET: Cadastro/Details/5
+        // GET: Cadastroes/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -45,19 +45,20 @@ namespace AppWebUnisuam.Controllers
             return View(cadastro);
         }
 
-        // GET: Cadastro/Create
+        // GET: Cadastroes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Cadastro/Create
+        // POST: Cadastroes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,DataNascimento,Pais,Cidade,Bairro")] Cadastro cadastro)
+        public async Task<IActionResult> Create(Cadastro cadastro)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(cadastro);
@@ -67,7 +68,7 @@ namespace AppWebUnisuam.Controllers
             return View(cadastro);
         }
 
-        // GET: Cadastro/Edit/5
+        // GET: Cadastroes/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -83,12 +84,12 @@ namespace AppWebUnisuam.Controllers
             return View(cadastro);
         }
 
-        // POST: Cadastro/Edit/5
+        // POST: Cadastroes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Nome,DataNascimento,Pais,Cidade,Bairro")] Cadastro cadastro)
+        public async Task<IActionResult> Edit(string id, Cadastro cadastro)
         {
             if (id != cadastro.Id)
             {
@@ -99,7 +100,7 @@ namespace AppWebUnisuam.Controllers
             {
                 try
                 {
-                    _context.Update(cadastro);
+                    _context.Cadastro.Update(cadastro);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -118,7 +119,7 @@ namespace AppWebUnisuam.Controllers
             return View(cadastro);
         }
 
-        // GET: Cadastro/Delete/5
+        // GET: Cadastroes/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -136,7 +137,7 @@ namespace AppWebUnisuam.Controllers
             return View(cadastro);
         }
 
-        // POST: Cadastro/Delete/5
+        // POST: Cadastroes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

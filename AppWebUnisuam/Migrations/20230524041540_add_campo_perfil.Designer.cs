@@ -3,6 +3,7 @@ using System;
 using AppWebUnisuam.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppWebUnisuam.Migrations
 {
     [DbContext(typeof(AppWebUnisuamContext))]
-    partial class AppWebUnisuamContextModelSnapshot : ModelSnapshot
+    [Migration("20230524041540_add_campo_perfil")]
+    partial class add_campo_perfil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,10 +40,6 @@ namespace AppWebUnisuam.Migrations
 
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<string>("Nome")
                         .IsRequired()

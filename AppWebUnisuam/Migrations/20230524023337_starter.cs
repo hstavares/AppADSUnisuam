@@ -20,10 +20,11 @@ namespace AppWebUnisuam.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Nome = table.Column<string>(type: "longtext", nullable: false),
+                    Senha = table.Column<string>(type: "longtext", nullable: false),
                     DataNascimento = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Pais = table.Column<string>(type: "longtext", nullable: false),
                     Cidade = table.Column<string>(type: "longtext", nullable: false),
-                    Bairro = table.Column<string>(type: "longtext", nullable: false)
+                    Bairro = table.Column<string>(type: "longtext", nullable: false),
+                    CriadoEm = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {

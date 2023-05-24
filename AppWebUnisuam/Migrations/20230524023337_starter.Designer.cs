@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppWebUnisuam.Migrations
 {
     [DbContext(typeof(AppWebUnisuamContext))]
-    [Migration("20230522204133_starter")]
+    [Migration("20230524023337_starter")]
     partial class starter
     {
         /// <inheritdoc />
@@ -35,6 +35,9 @@ namespace AppWebUnisuam.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("DataNascimento")
                         .HasColumnType("datetime(6)");
 
@@ -42,7 +45,7 @@ namespace AppWebUnisuam.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Pais")
+                    b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("longtext");
 
