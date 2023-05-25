@@ -35,8 +35,9 @@ namespace AppWebUnisuam.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime(6)");
+                    b.Property<string>("DataNascimento")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .IsRequired()

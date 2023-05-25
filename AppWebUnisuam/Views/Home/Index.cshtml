@@ -1,8 +1,64 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<AppWebUnisuam.Models.Cadastro>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="container-fluid text-center">
+<div class="container">
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 30vh;">
+            <div class="col-md-6">
+                <h1 class="text-center">Bem vindo(a) ao sistema!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Produtos</h5>
+                        <p class="card-text">Aqui você pode visualizar e gerenciar seus produtos em estoque.</p>
+                        <a href="#" class="btn btn-primary">Ver Produtos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Vendas</h5>
+                        <p class="card-text">Registre e acompanhe suas vendas realizadas.</p>
+                        <a href="#" class="btn btn-primary">Ver Vendas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatórios</h5>
+                        <p class="card-text">Acesse relatórios e análises sobre o desempenho do seu estoque.</p>
+                        <a href="#" class="btn btn-primary">Ver Relatórios</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Fornecedores</h5>
+                        <p class="card-text">Gerencie seus fornecedores e mantenha seus contatos atualizados.</p>
+                        <a href="#" class="btn btn-primary">Ver Fornecedores</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="container-fluid text-center">
     <h1 class="display-3">The Best Solution for Your Business</h1>
     <p class="lead pb-4">We help you maximize performance and build a healthy organization.</p>
     <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
@@ -10,14 +66,14 @@
 
 <section id="services" class="container">
    <h2 class="display-4 text-center mt-5 mb-3">Our Services</h2>
-   
+
    <div class="row text-center">
       <div class="col-md-4 mb-4">
          <div class="card h-100">
             <img class="card-img-top" src="design.jpg" alt="Design">
             <div class="card-body">
                <h4 class="card-title">Design</h4>
-               <p class="card-text">Deliver the best user experience 
+               <p class="card-text">Deliver the best user experience
                with our carefully designed responsive websites and applications!</p>
             </div>
             <div class="card-footer py-4">
@@ -25,13 +81,13 @@
             </div>
          </div>
       </div>
-      
+
       <div class="col-md-4 mb-4">
          <div class="card h-100">
             <img class="card-img-top" src="development.jpg" alt="Development">
             <div class="card-body">
                <h4 class="card-title">Development</h4>
-                  <p class="card-text">You need software that works on every device. 
+                  <p class="card-text">You need software that works on every device.
                   Leverage the latest technologies and the most powerful tools!</p>
             </div>
             <div class="card-footer py-4">
@@ -39,13 +95,13 @@
             </div>
          </div>
       </div>
-      
+
       <div class="col-md-4 mb-4">
          <div class="card h-100">
             <img class="card-img-top" src="analytics.jpg" alt="Analytics">
             <div class="card-body">
                <h4 class="card-title">Analytics</h4>
-               <p class="card-text">Consult our experts to set up proper goals and 
+               <p class="card-text">Consult our experts to set up proper goals and
                find the best stack for your next application!</p>
             </div>
             <div class="card-footer py-4">
@@ -80,7 +136,7 @@
     #contact {
         background-color: #f08080;
     }
-</style>
+</style>*@
 
 @*<div class="text-center">
     <h1 class="display-4">Welcome</h1>
