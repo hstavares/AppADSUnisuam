@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppWebUnisuam.Data;
 using AppWebUnisuam.Models;
+using AppWebUnisuam.Services;
 
 namespace AppWebUnisuam.Controllers
 {
@@ -58,6 +59,8 @@ namespace AppWebUnisuam.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cadastro cadastro)
         {
+
+            cadastro.Senha = CriptografiaService.EncriptaPassword(cadastro.Senha);
 
             if (ModelState.IsValid)
             {
