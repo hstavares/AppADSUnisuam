@@ -3,6 +3,7 @@ using System;
 using AppWebUnisuam.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppWebUnisuam.Migrations
 {
     [DbContext(typeof(AppWebUnisuamContext))]
-    partial class AppWebUnisuamContextModelSnapshot : ModelSnapshot
+    [Migration("20230602150634_add_tabela_produtos")]
+    partial class add_tabela_produtos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,53 +104,6 @@ namespace AppWebUnisuam.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
-                });
-
-            modelBuilder.Entity("AppWebUnisuam.Models.Vendas", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Cliente")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("DataDaVenda")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Desconto")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("FormaDePagamento")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Funcionario")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Observacoes")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PrecoUnitario")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Produto")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Quantidade")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ValorDaVenda")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Vendas");
                 });
 #pragma warning restore 612, 618
         }

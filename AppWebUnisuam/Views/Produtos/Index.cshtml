@@ -1,0 +1,85 @@
+﻿@model IEnumerable<AppWebUnisuam.Models.Produtos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="fw-bold">Produtos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descrição)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preço)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Disponibilidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AtualizadoEm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descrição)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preço)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imagem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Disponibilidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AtualizadoEm)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editar</a> |
+                    @*<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |*@
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

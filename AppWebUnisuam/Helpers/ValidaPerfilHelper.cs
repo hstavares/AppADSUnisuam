@@ -1,4 +1,5 @@
-﻿using AppWebUnisuam.Data;
+﻿using AppWebUnisuam.Collections;
+using AppWebUnisuam.Data;
 
 namespace AppWebUnisuam.Helpers
 {
@@ -7,13 +8,10 @@ namespace AppWebUnisuam.Helpers
         public static bool Get(PerfilType[] perfis, string IdUsuario, AppWebUnisuamContext _context)
         {
 
-            var usuarioProjetoPerfis = _context.UsuarioProjetoPerfil
-                 .Include(e => e.Usuarios)
-                 .Include(e => e.Projetos)
-                 .Include(e => e.Perfil)
-                 .Where(e => e.Usuarios.Id == IdUsuario);
+            var usuarioPerfis = _context.Cadastro
+                 .Where(e => e.Id == IdUsuario);
 
-            if (usuarioProjetoPerfis == null) //usuario n encontrado
+            if (usuarioPerfis == null) //usuario n encontrado
                 return false;
 
             if (perfis == null) //nao é feita validacao por perfil
@@ -21,9 +19,9 @@ namespace AppWebUnisuam.Helpers
 
             foreach (var perfil in perfis)
             {
-                foreach (var item in usuarioProjetoPerfis)
+                foreach (var item in usuarioPerfis)
                 {
-                    if (item.Perfil.Nome.ToUpper() == perfil.ToString().ToUpper() || item.Perfil.Nome.ToUpper() == "MASTER")
+                    if (item.Perfil.ToUpper() == perfil.ToString().ToUpper() || item.Nome.ToUpper() == "MASTER")
                         return true;
                 }
             }

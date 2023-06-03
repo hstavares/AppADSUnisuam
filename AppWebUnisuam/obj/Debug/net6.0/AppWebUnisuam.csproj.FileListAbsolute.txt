@@ -887,3 +887,4 @@ C:\Users\pedro.martins\Documents\GitHugo\AppADSUnisuam\AppWebUnisuam\obj\Debug\n
 C:\Users\pedro.martins\Documents\GitHugo\AppADSUnisuam\AppWebUnisuam\obj\Debug\net6.0\AppWebUnisuam.pdb
 C:\Users\pedro.martins\Documents\GitHugo\AppADSUnisuam\AppWebUnisuam\obj\Debug\net6.0\AppWebUnisuam.genruntimeconfig.cache
 C:\Users\pedro.martins\Documents\GitHugo\AppADSUnisuam\AppWebUnisuam\obj\Debug\net6.0\ref\AppWebUnisuam.dll
+C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\bin\Debug\net6.0\JWT.dll

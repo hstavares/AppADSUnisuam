@@ -1,31 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pedro.martins\\Documents\\GitHugo\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj": {}
+    "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pedro.martins\\Documents\\GitHugo\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj": {
+    "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pedro.martins\\Documents\\GitHugo\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj",
+        "projectUniqueName": "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj",
         "projectName": "AppWebUnisuam",
-        "projectPath": "C:\\Users\\pedro.martins\\Documents\\GitHugo\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj",
-        "packagesPath": "C:\\Users\\pedro.martins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pedro.martins\\Documents\\GitHugo\\AppADSUnisuam\\AppWebUnisuam\\obj\\",
+        "projectPath": "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj",
+        "packagesPath": "C:\\Users\\hugo.tavares\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\pedro.martins\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\hugo.tavares\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "D:\\Program Files\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +82,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.311\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

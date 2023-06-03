@@ -1,0 +1,78 @@
+﻿@model AppWebUnisuam.Models.Produtos
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="fw-bold">Adicionar</h1>
+<h4 class="mb-4">Produto</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Nome" class="form-label">Nome</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Descrição" class="form-label">Descrição</label>
+                <input asp-for="Descrição" class="form-control" />
+                <span asp-validation-for="Descrição" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Preço" class="form-label">Preço</label>
+                <input asp-for="Preço" class="form-control" />
+                <span asp-validation-for="Preço" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Categoria" class="form-label">Categoria</label>
+                <input asp-for="Categoria" class="form-control" />
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Marca" class="form-label">Marca</label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Imagem" class="form-label">Imagem</label>
+                <input asp-for="Imagem" class="form-control" />
+                <span asp-validation-for="Imagem" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Disponibilidade" class="form-label">Disponibilidade</label>
+                <input asp-for="Disponibilidade" class="form-control" />
+                <span asp-validation-for="Disponibilidade" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Estoque" class="form-label">Estoque</label>
+                <input asp-for="Estoque" class="form-control" />
+                <span asp-validation-for="Estoque" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

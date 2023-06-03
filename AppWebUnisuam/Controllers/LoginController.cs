@@ -34,8 +34,9 @@ namespace AppWebUnisuam.Controllers
             }
             else
             {
-                usuario.Senha = CriptografiaService.EncriptaPassword(request.Senha);
-                return RedirectToAction("Index", "Home");
+                
+                //usuario.Senha = CriptografiaService.EncriptaPassword(request.Senha);
+                return RedirectToAction("Privacy", "Home");
             }
         }
 

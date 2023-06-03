@@ -15,5 +15,9 @@ namespace AppWebUnisuam.Data
         }
 
         public DbSet<AppWebUnisuam.Models.Cadastro> Cadastro { get; set; } = default!;
+
+        public DbSet<AppWebUnisuam.Models.Produtos>? Produtos { get; set; }
+
+        public DbSet<AppWebUnisuam.Models.Vendas>? Vendas { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using AppWebUnisuam.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppWebUnisuam.Migrations
 {
     [DbContext(typeof(AppWebUnisuamContext))]
-    partial class AppWebUnisuamContextModelSnapshot : ModelSnapshot
+    [Migration("20230602164435_add_tabela_vendas")]
+    partial class add_tabela_vendas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

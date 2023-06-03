@@ -4,6 +4,6 @@
     {
         Master = 0,
         Admin,
-        User
+        Vendedor
     }
 }
