@@ -23,6 +23,13 @@ namespace AppWebUnisuam.Controllers
         {
             return View();
         }
+
+        public IActionResult Sair()
+        {
+            Response.Cookies.Delete("AuthToken");
+
+            return RedirectToAction("Index", "Login");
+        }
         [AuthToken(PerfilType.Vendedor)]
         public async Task<IActionResult> Index_Vendedor()
         {

@@ -91,6 +91,7 @@ namespace AppWebUnisuam.Controllers
             {
                 return NotFound();
             }
+            cadastro.Senha = "";
             return View(cadastro);
         }
 
@@ -109,6 +110,7 @@ namespace AppWebUnisuam.Controllers
 
             if (ModelState.IsValid)
             {
+                cadastro.Senha = CriptografiaService.EncriptaPassword(cadastro.Senha);
                 try
                 {
                     _context.Cadastro.Update(cadastro);
