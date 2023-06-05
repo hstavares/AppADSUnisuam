@@ -6,6 +6,7 @@ C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\n
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\AppWebUnisuam.pdb
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\Google.Protobuf.dll
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
+C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\JWT.dll
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\K4os.Compression.LZ4.dll
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\K4os.Compression.LZ4.Streams.dll
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\PubTmp\Out\K4os.Hash.xxHash.dll

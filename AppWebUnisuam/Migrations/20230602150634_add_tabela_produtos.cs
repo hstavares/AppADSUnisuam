@@ -18,7 +18,7 @@ namespace AppWebUnisuam.Migrations
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Nome = table.Column<string>(type: "longtext", nullable: false),
                     Descrição = table.Column<string>(type: "longtext", nullable: true),
-                    Preço = table.Column<string>(type: "longtext", nullable: false),
+                    Preco = table.Column<string>(type: "longtext", nullable: false),
                     Categoria = table.Column<string>(type: "longtext", nullable: true),
                     Marca = table.Column<string>(type: "longtext", nullable: true),
                     Imagem = table.Column<string>(type: "longtext", nullable: true),

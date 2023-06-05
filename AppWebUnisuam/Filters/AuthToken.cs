@@ -19,7 +19,9 @@ namespace AppWebUnisuam.Filters
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var tokenstr = context.HttpContext.Request.Headers.FirstOrDefault(e => e.Key == "Authorization").Value;
+            //var tokenstr = context.HttpContext.Request.Headers.FirstOrDefault(e => e.Key == "Authorization").Value;
+
+            var tokenstr = context.HttpContext.Request.Cookies["AuthToken"];
 
             if (string.IsNullOrEmpty(tokenstr))
                 context.Result = new UnauthorizedResult();

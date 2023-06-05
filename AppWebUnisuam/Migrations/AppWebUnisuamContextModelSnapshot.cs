@@ -94,7 +94,7 @@ namespace AppWebUnisuam.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Preço")
+                    b.Property<string>("Preco")
                         .IsRequired()
                         .HasColumnType("longtext");
 

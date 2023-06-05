@@ -1,4 +1,5 @@
-﻿using AppWebUnisuam.Data;
+﻿using AppWebUnisuam.Collections;
+using AppWebUnisuam.Data;
 using AppWebUnisuam.DTO.Requests;
 using AppWebUnisuam.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -30,13 +31,33 @@ namespace AppWebUnisuam.Controllers
 
             if (usuario == null)
             {
-                return BadRequest();
+                TempData["MensagemErro"] = "Usuário não encontrado";
+                return RedirectToAction("Index", "Login");
+            }
+
+            if (CriptografiaService.EncriptaPassword(request.Senha) != usuario.Senha)
+            {
+                TempData["MensagemErro"] = "Senha incorreta";
+                return RedirectToAction("Index", "Login");
+            }
+
+            var token = TokenService.GenerateTokenJwt(usuario, DateTime.Now.AddHours(3));
+
+            //ViewBag.AuthToken = token;
+
+            Response.Cookies.Append("AuthToken", token, new CookieOptions
+            {
+                Expires = DateTime.Now.AddHours(3),
+                HttpOnly = true
+            });
+
+            if (usuario.Perfil == "Admin" || usuario.Perfil == "MASTER")
+            {
+                return RedirectToAction("Index", "Home");
             }
             else
             {
-                
-                //usuario.Senha = CriptografiaService.EncriptaPassword(request.Senha);
-                return RedirectToAction("Privacy", "Home");
+                return RedirectToAction("Index_Vendedor", "Home");
             }
         }
 

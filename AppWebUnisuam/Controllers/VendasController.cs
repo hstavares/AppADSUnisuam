@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppWebUnisuam.Data;
 using AppWebUnisuam.Models;
+using AppWebUnisuam.DTO;
+using AppWebUnisuam.Collections;
+using AppWebUnisuam.Filters;
 
 namespace AppWebUnisuam.Controllers
 {
@@ -20,6 +23,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Vendas
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Index()
         {
               return _context.Vendas != null ? 
@@ -158,6 +162,70 @@ namespace AppWebUnisuam.Controllers
         private bool VendasExists(string id)
         {
           return (_context.Vendas?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public async Task<IActionResult> Vender(string id)
+        {
+            var produto = await _context.Produtos.FirstOrDefaultAsync(e => e.Id == id);
+
+            if (produto == null)
+            {
+                return NotFound();
+            }
+
+            var venda = new VendaPOST
+            {
+                Nome = produto.Nome,
+                Preco = Convert.ToDouble(produto.Preco),
+                Desconto = 0,
+                Quantidade = 1,
+                Imagem = produto.Imagem,
+                Cliente = "",
+                Funcionario = "",
+                FormaDePagamento = "",
+                Observacoes = "",
+                PrecoFinal = 0
+            };
+
+            return View(venda);
+        }
+
+        [HttpPost]
+        [AuthToken(PerfilType.Vendedor)]
+        public async Task<IActionResult> Vender(VendaPOST request)
+        {
+            var venda = new Vendas
+            {
+                DataDaVenda = DateTime.Now,
+                Produto = request.Nome,
+                Cliente = request.Cliente,
+                Quantidade = request.Quantidade.ToString(),
+                PrecoUnitario = request.Preco.ToString(),
+                ValorDaVenda = request.PrecoFinal.ToString(),
+                Desconto = request.Desconto.ToString(),
+                Funcionario = request.Funcionario,
+                FormaDePagamento = request.FormaDePagamento.ToString(),
+                Observacoes = request.Observacoes
+            };
+            if (venda != null)
+            {
+                _context.Vendas.Add(venda);
+            }
+
+            var produto = _context.Produtos.FirstOrDefault(e => e.Nome == request.Nome);
+
+            produto.Estoque = produto.Estoque - request.Quantidade;
+
+            if (produto.Estoque < 0)
+            {
+                produto.Disponibilidade = "Indisponível";
+            }
+
+            _context.Produtos.Update(produto);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index_Vendedor", "Home");
         }
     }
 }

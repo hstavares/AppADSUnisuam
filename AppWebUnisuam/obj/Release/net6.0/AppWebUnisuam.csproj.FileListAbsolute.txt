@@ -296,3 +296,4 @@ C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\n
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\AppWebUnisuam.pdb
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\AppWebUnisuam.genruntimeconfig.cache
 C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\obj\Release\net6.0\ref\AppWebUnisuam.dll
+C:\Users\hugo.tavares\Documents\GitHub\AppADSUnisuam\AppWebUnisuam\bin\Release\net6.0\JWT.dll

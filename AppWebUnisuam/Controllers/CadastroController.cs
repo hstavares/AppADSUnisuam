@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using AppWebUnisuam.Data;
 using AppWebUnisuam.Models;
 using AppWebUnisuam.Services;
+using AppWebUnisuam.Collections;
+using AppWebUnisuam.Filters;
 
 namespace AppWebUnisuam.Controllers
 {
@@ -21,6 +23,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Cadastroes
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Index()
         {
               return _context.Cadastro != null ? 
@@ -29,6 +32,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Cadastroes/Details/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -56,11 +60,13 @@ namespace AppWebUnisuam.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Cadastro cadastro)
         {
 
             cadastro.Senha = CriptografiaService.EncriptaPassword(cadastro.Senha);
+            cadastro.Perfil = cadastro.Perfil == "Administrador" ? PerfilType.Admin.ToString() : PerfilType.Vendedor.ToString();
 
             if (ModelState.IsValid)
             {
@@ -72,6 +78,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Cadastroes/Edit/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -91,6 +98,7 @@ namespace AppWebUnisuam.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, Cadastro cadastro)
         {
@@ -123,6 +131,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Cadastroes/Delete/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Cadastro == null)
@@ -142,6 +151,7 @@ namespace AppWebUnisuam.Controllers
 
         // POST: Cadastroes/Delete/5
         [HttpPost, ActionName("Delete")]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppWebUnisuam.Data;
 using AppWebUnisuam.Models;
+using AppWebUnisuam.Collections;
+using AppWebUnisuam.Filters;
 
 namespace AppWebUnisuam.Controllers
 {
@@ -20,6 +22,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Produtos
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Index()
         {
               return _context.Produtos != null ? 
@@ -28,6 +31,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Produtos/Details/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Produtos == null)
@@ -46,6 +50,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Produtos/Create
+        [AuthToken(PerfilType.Admin)]
         public IActionResult Create()
         {
             return View();
@@ -55,8 +60,9 @@ namespace AppWebUnisuam.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descrição,Preço,Categoria,Marca,Imagem,Disponibilidade,Estoque,AtualizadoEm,CriadoEm")] Produtos Produtos)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descrição,Preco,Categoria,Marca,Imagem,Disponibilidade,Estoque,AtualizadoEm,CriadoEm")] Produtos Produtos)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +74,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Produtos/Edit/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Produtos == null)
@@ -87,8 +94,9 @@ namespace AppWebUnisuam.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Nome,Descrição,Preço,Categoria,Marca,Imagem,Disponibilidade,Estoque,AtualizadoEm,CriadoEm")] Produtos Produtos)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Nome,Descrição,Preco,Categoria,Marca,Imagem,Disponibilidade,Estoque,AtualizadoEm,CriadoEm")] Produtos Produtos)
         {
             if (id != Produtos.Id)
             {
@@ -119,6 +127,7 @@ namespace AppWebUnisuam.Controllers
         }
 
         // GET: Produtos/Delete/5
+        [AuthToken(PerfilType.Admin)]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Produtos == null)
@@ -138,6 +147,7 @@ namespace AppWebUnisuam.Controllers
 
         // POST: Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
+        [AuthToken(PerfilType.Admin)]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {

@@ -1,0 +1,97 @@
+﻿@model AppWebUnisuam.DTO.VendaPOST;
+
+@{
+    ViewData["Title"] = "Vender";
+    Layout = "";
+}
+
+<! DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AppWebUnisuam</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AppWebUnisuam.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fontawesome-free-6.2.1-web/css/all.css" asp-append-version="true" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="@Model.Imagem" alt="Imagem do Produto" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+                <form asp-action="Vender">
+                    <div class="form-group">
+                        <label for="nome">Nome do Produto</label>
+                        <input asp-for="Nome" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="Cliente">Nome do Cliente</label>
+                        <input asp-for="Cliente" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
+                    </div>
+                    <div class="form-group">
+                        <label for="funcionario">Nome do Funcionario</label>
+                        <input asp-for="Funcionario" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <input asp-for="Quantidade" type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade" onchange="calcularPrecoFinal()">
+                    </div>
+                    <div class="form-group">
+                        <label for="preco">Preco</label>
+                        <input asp-for="Preco" type="number" class="form-control" id="preco" placeholder="Digite o Preco" onchange="calcularPrecoFinal()" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="desconto">Desconto</label>
+                        <input asp-for="Desconto" type="number" class="form-control" id="desconto" placeholder="Digite o desconto" onchange="calcularPrecoFinal()">
+                    </div>
+                    <div class="form-group">
+                        <label for="precoFinal">Preco Final</label>
+                        <input asp-for="PrecoFinal" type="number" class="form-control" id="precoFinal" placeholder="Digite o Preco final" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FormaDePagamento" for="formaPagamento">Forma de Pagamento</label>
+                        <select asp-for="FormaDePagamento" class="form-control" id="formaPagamento">
+                            <option value="Credito">Crédito</option>
+                            <option value="Debito">Débito</option>
+                            <option value="Pix">Pix</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="Observacoes">Observacoes</label>
+                        <input asp-for="Observacoes" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Vender</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calcularPrecoFinal() {
+            var quantidade = parseFloat(document.getElementById("quantidade").value);
+            var preco = parseFloat(document.getElementById("preco").value);
+            var desconto = parseFloat(document.getElementById("desconto").value);
+
+            if (isNaN(quantidade)) {
+                quantidade = 0;
+            }
+            if (isNaN(preco)) {
+                preco = 0;
+            }
+            if (isNaN(desconto)) {
+                desconto = 0;
+            }
+
+            var precoFinal = (preco * quantidade) - desconto;
+
+            document.getElementById("precoFinal").value = precoFinal.toFixed(2);
+        }
+
+        window.onload = calcularPrecoFinal;
+    </script>
+</body>
+</html>
