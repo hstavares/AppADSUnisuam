@@ -4,10 +4,57 @@
     ViewData["Title"] = "Details";
 }
 
+<style>
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid #ddd;
+    }
+
+    .row::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .col-sm-2 {
+        float: left;
+        width: 16.66666667%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .col-sm-10 {
+        float: left;
+        width: 83.33333333%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
 <h1 class="fw-bold">Detalhes</h1>
 
 <div>
-    <h4>Produtos</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -71,4 +118,5 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a> |
     <a asp-action="Index" class="btn btn-secondary">Voltar</a>
 </div>
+
 

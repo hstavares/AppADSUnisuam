@@ -10,6 +10,7 @@ using AppWebUnisuam.Models;
 using AppWebUnisuam.DTO;
 using AppWebUnisuam.Collections;
 using AppWebUnisuam.Filters;
+using Org.BouncyCastle.Bcpg;
 
 namespace AppWebUnisuam.Controllers
 {
@@ -164,6 +165,23 @@ namespace AppWebUnisuam.Controllers
           return (_context.Vendas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
 
+        public IActionResult MinhasVendas()
+        {
+            string? userId = Request.Cookies["userid"];
+
+            if (String.IsNullOrEmpty(userId))
+            {
+                TempData["MensagemErro"] = "Usuário não encontrado";
+                return RedirectToAction("Index", "Login");
+            }
+
+            var usuario = _context.Cadastro.FirstOrDefault(e => e.Id == userId);
+
+            var vendas = _context.Vendas.Where(e => e.Funcionario == usuario.Nome).ToList();
+
+            return View(vendas);
+        }
+
         public async Task<IActionResult> Vender(string id)
         {
             var produto = await _context.Produtos.FirstOrDefaultAsync(e => e.Id == id);
@@ -172,6 +190,10 @@ namespace AppWebUnisuam.Controllers
             {
                 return NotFound();
             }
+            string? userId = Request.Cookies["userid"];
+
+            var vendedor = _context.Cadastro.FirstOrDefault(e => e.Id == userId); 
+
 
             var venda = new VendaPOST
             {
@@ -181,7 +203,7 @@ namespace AppWebUnisuam.Controllers
                 Quantidade = 1,
                 Imagem = produto.Imagem,
                 Cliente = "",
-                Funcionario = "",
+                Funcionario = vendedor.Nome.ToString(),
                 FormaDePagamento = "",
                 Observacoes = "",
                 PrecoFinal = 0
@@ -203,7 +225,7 @@ namespace AppWebUnisuam.Controllers
                 PrecoUnitario = request.Preco.ToString(),
                 ValorDaVenda = request.PrecoFinal.ToString(),
                 Desconto = request.Desconto.ToString(),
-                Funcionario = request.Funcionario,
+                Funcionario = request.Funcionario.ToString(),
                 FormaDePagamento = request.FormaDePagamento.ToString(),
                 Observacoes = request.Observacoes
             };
@@ -226,6 +248,28 @@ namespace AppWebUnisuam.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index_Vendedor", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult NotaFiscal(string id)
+        {
+            var venda = _context.Vendas.FirstOrDefault(e => e.Id == id);
+
+            var novaNota = new NotaFiscalPOST
+            {
+                Codigo = venda.Id,
+                NomeDoVendedor = venda.Funcionario,
+                NomeDoCliente = venda.Cliente,
+                NomeDoProduto = venda.Produto,
+                Preco = venda.PrecoUnitario,
+                Quantidade = venda.Quantidade,
+                Desconto = venda.Desconto == null ? "0" : venda.Desconto.ToString(),
+                PrecoTotal = venda.ValorDaVenda,
+                FormaDePagamento = venda.FormaDePagamento,
+                Observacoes = venda.Observacoes == null ? "Não preencheu" : venda.Observacoes.ToString()
+            };
+
+            return View(novaNota);
         }
     }
 }

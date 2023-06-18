@@ -35,15 +35,18 @@
                     </div>
                     <div class="form-group">
                         <label for="funcionario">Nome do Funcionario</label>
-                        <input asp-for="Funcionario" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
+                        <input asp-for="Funcionario" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto" readonly>
                     </div>
                     <div class="form-group">
                         <label for="quantidade">Quantidade</label>
                         <input asp-for="Quantidade" type="number" class="form-control" id="quantidade" placeholder="Digite a quantidade" onchange="calcularPrecoFinal()">
                     </div>
                     <div class="form-group">
-                        <label for="preco">Preco</label>
-                        <input asp-for="Preco" type="number" class="form-control" id="preco" placeholder="Digite o Preco" onchange="calcularPrecoFinal()" readonly>
+                        <label for="preco">Preço</label>
+                        <div class="input-group">
+                            <span class="input-group-text">R$</span>
+                            <input asp-for="Preco" type="number" class="form-control" id="preco" placeholder="Digite o Preço" onchange="calcularPrecoFinal()" readonly>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="desconto">Desconto</label>
@@ -65,7 +68,13 @@
                         <label for="Observacoes">Observacoes</label>
                         <input asp-for="Observacoes" type="text" class="form-control" id="nome" placeholder="Digite o nome do produto">
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Vender</button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mt-3">Vender</button>
+                    </div>
+                    <div class="form-group">
+                        <a asp-action="Index_Vendedor" asp-controller="Home" class="btn btn-secondary mt-3">Voltar</a>
+                    </div>
+
                 </form>
             </div>
         </div>

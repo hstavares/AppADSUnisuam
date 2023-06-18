@@ -4,9 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Cadastro</h4>
+<h4 class="fw-bold">Cadastro</h4>
 <hr />
 <div class="card bg-light mb-3">
     <div class="card-body">
@@ -65,9 +63,9 @@
     <a asp-action="Index" class="btn btn-secondary">Voltar</a>
 </div>
 
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+

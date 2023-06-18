@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CS3XDh7exE46vNIZGLOeWE41Cd4/IvZIqE8SfZBYmXedB2DX7IuSmt482Jpa8B5aD7cJK0aAWXnOwUfICy13zg==",
+  "dgSpecHash": "tKdc58smc3nw6pBoXPJzBgjYVlQgKjdHvDCIynRN5h9YshMbFpB6l8SZzvuJ+Sc5NN8X3jsBUv4nacuGQMV3lw==",
   "success": true,
   "projectFilePath": "C:\\Users\\hugo.tavares\\Documents\\GitHub\\AppADSUnisuam\\AppWebUnisuam\\AppWebUnisuam.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hugo.tavares\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\hugo.tavares\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\hugo.tavares\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hugo.tavares\\.nuget\\packages\\jwt\\10.0.2\\jwt.10.0.2.nupkg.sha512",

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "AppWebUnisuam/1.0.0": {
         "dependencies": {
+          "FontAwesome": "4.7.0",
           "JWT": "10.0.2",
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.16",
@@ -20,6 +21,7 @@
           "AppWebUnisuam.dll": {}
         }
       },
+      "FontAwesome/4.7.0": {},
       "Google.Protobuf/3.21.9": {
         "runtime": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -2493,6 +2495,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "Google.Protobuf/3.21.9": {
       "type": "package",

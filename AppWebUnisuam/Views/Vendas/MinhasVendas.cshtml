@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AppWebUnisuam.Models.Vendas>
+
+@{
+    ViewData["Title"] = "Minhas Vendas";
+    Layout = "_LayoutVendedor";
+}
+
+<style>
+    .vertical-header {
+        text-align: center;
+        font-size: 12px;
+        padding: 8px;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table td, .table th {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            font-size: 14px;
+            font-weight: bold;
+        }
+</style>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="vertical-header">Data da Venda</th>
+                <th class="vertical-header">@Html.DisplayNameFor(model => model.Produto)</th>
+                <th class="vertical-header">@Html.DisplayNameFor(model => model.Cliente)</th>
+                <th class="vertical-header">@Html.DisplayNameFor(model => model.Quantidade)</th>
+                <th class="vertical-header">Valor da venda</th>
+                <th class="vertical-header">@Html.DisplayNameFor(model => model.Funcionario)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DataDaVenda)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Produto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cliente)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Quantidade)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ValorDaVenda)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Funcionario)</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalhes</a>
+                    </td>
+                    <td>
+                        <a asp-action="NotaFiscal" asp-controller="Vendas" asp-route-id="@item.Id" class="btn btn-danger">Nota Fiscal</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

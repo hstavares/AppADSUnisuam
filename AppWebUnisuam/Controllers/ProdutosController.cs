@@ -9,6 +9,7 @@ using AppWebUnisuam.Data;
 using AppWebUnisuam.Models;
 using AppWebUnisuam.Collections;
 using AppWebUnisuam.Filters;
+using AppWebUnisuam.DTO;
 
 namespace AppWebUnisuam.Controllers
 {

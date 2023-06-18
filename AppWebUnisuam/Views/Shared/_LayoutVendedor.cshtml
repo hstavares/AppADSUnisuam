@@ -23,20 +23,20 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index_Vendedor">
                                 <i class="fas fa-home"></i> PÁGINA INICIAL
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">
-                                <i class="fas fa-sign-in-alt"></i> ENTRADA
+                            <a class="nav-link" asp-controller="Vendas" asp-action="MinhasVendas">
+                                <i class="fas fa-sign-in-alt"></i> MINHAS VENDAS
                             </a>
                         </li>
-                        <li class="nav-item">
+@*                        <li class="nav-item">
                             <a class="nav-link">
                                 <i class="fas fa-sign-out-alt"></i> SAÍDA
                             </a>
-                        </li>
+                        </li>*@
 
                     </ul>
                     <ul class="navbar-nav">

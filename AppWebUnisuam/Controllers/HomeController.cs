@@ -27,12 +27,22 @@ namespace AppWebUnisuam.Controllers
         public IActionResult Sair()
         {
             Response.Cookies.Delete("AuthToken");
+            Response.Cookies.Delete("userid");
 
             return RedirectToAction("Index", "Login");
         }
+
         [AuthToken(PerfilType.Vendedor)]
         public async Task<IActionResult> Index_Vendedor()
         {
+            string? userId = Request.Cookies["userid"];
+            var usuario =  _context.Cadastro.FirstOrDefault(e => e.Id == userId);
+
+            if (usuario.Perfil == "MASTER" || usuario.Perfil == "Admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return _context.Produtos != null ?
                           View(await _context.Produtos.ToListAsync()) :
                           Problem("Entity set 'AppWebUnisuamContext.Produtos'  is null.");
@@ -41,6 +51,13 @@ namespace AppWebUnisuam.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public async Task<IActionResult> MeuPerfil()
+        {
+            return _context.Cadastro != null ?
+                          View(await _context.Cadastro.ToListAsync()) :
+                          Problem("Entity set 'AppWebUnisuamContext.Produtos'  is null.");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

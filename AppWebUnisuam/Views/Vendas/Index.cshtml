@@ -37,7 +37,7 @@
         <thead>
             <tr>
                 <th class="vertical-header">
-                    @Html.DisplayNameFor(model => model.DataDaVenda)
+                    Data da Venda
                 </th>
                 <th class="vertical-header">
                     @Html.DisplayNameFor(model => model.Produto)
@@ -49,21 +49,11 @@
                     @Html.DisplayNameFor(model => model.Quantidade)
                 </th>
                 <th class="vertical-header">
-                    @Html.DisplayNameFor(model => model.PrecoUnitario)
-                </th>
-                <th class="vertical-header">
-                    @Html.DisplayNameFor(model => model.ValorDaVenda)
-                </th>
-                <th class="vertical-header">
-                    @Html.DisplayNameFor(model => model.Desconto)
+                    Valor da venda
                 </th>
                 <th class="vertical-header">
                     @Html.DisplayNameFor(model => model.Funcionario)
                 </th>
-                <th class="vertical-header">
-                    @Html.DisplayNameFor(model => model.FormaDePagamento)
-                </th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -83,23 +73,13 @@
                         @Html.DisplayFor(modelItem => item.Quantidade)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PrecoUnitario)
-                    </td>
-                    <td>
                         @Html.DisplayFor(modelItem => item.ValorDaVenda)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Desconto)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Funcionario)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FormaDePagamento)
-                    </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalhes</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalhes</a>
                     </td>
                 </tr>
             }

@@ -1,0 +1,87 @@
+﻿@model AppWebUnisuam.DTO.NotaFiscalPOST
+
+@{
+    ViewData["Title"] = "NF";
+    Layout = "_LayoutVendedor";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+            table td:first-child {
+                font-weight: bold;
+                width: 200px;
+            }
+
+    .btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
+<h2>Detalhes da Nota Fiscal</h2>
+
+<hr />
+
+<table>
+    <tr>
+        <td><strong>Código:</strong></td>
+        <td>@Model.Codigo</td>
+    </tr>
+    <tr>
+        <td><strong>Nome do Vendedor:</strong></td>
+        <td>@Model.NomeDoVendedor</td>
+    </tr>
+    <tr>
+        <td><strong>Nome do Cliente:</strong></td>
+        <td>@Model.NomeDoCliente</td>
+    </tr>
+    <tr>
+        <td><strong>Nome do Produto:</strong></td>
+        <td>@Model.NomeDoProduto</td>
+    </tr>
+    <tr>
+        <td><strong>Preço:</strong></td>
+        <td>@Model.Preco</td>
+    </tr>
+    <tr>
+        <td><strong>Quantidade:</strong></td>
+        <td>@Model.Quantidade</td>
+    </tr>
+    <tr>
+        <td><strong>Desconto:</strong></td>
+        <td>@Model.Desconto</td>
+    </tr>
+    <tr>
+        <td><strong>Preço Total:</strong></td>
+        <td>@Model.PrecoTotal</td>
+    </tr>
+    <tr>
+        <td><strong>Forma de Pagamento:</strong></td>
+        <td>@Model.FormaDePagamento</td>
+    </tr>
+    <tr>
+        <td><strong>Observações:</strong></td>
+        <td>@Model.Observacoes</td>
+    </tr>
+</table>
+
+<a href="#" onclick="window.print(); return false;" class="btn btn-primary">Imprimir</a>

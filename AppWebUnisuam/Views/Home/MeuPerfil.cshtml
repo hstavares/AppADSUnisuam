@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AppWebUnisuam.Models.Cadastro>
+
+@{
+    ViewData["Title"] = "Meu Perfil";
+}
+
+<ul class="nav nav-tabs" id="myTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="dados-pessoais-tab" data-bs-toggle="tab" data-bs-target="#dados-pessoais" type="button" role="tab" aria-controls="dados-pessoais" aria-selected="true">Dados Pessoais</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="minhas-vendas-tab" data-bs-toggle="tab" data-bs-target="#minhas-vendas" type="button" role="tab" aria-controls="minhas-vendas" aria-selected="false">Minhas Vendas</button>
+    </li>
+</ul>
+
+<div class="tab-content mt-3" id="myTabContent">
+    <div class="tab-pane fade show active" id="dados-pessoais" role="tabpanel" aria-labelledby="dados-pessoais-tab">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Perfil</h5>
+                                    <p class="card-text">Informações do Perfil:</p>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Email: <strong></strong></li>
+                                        <li class="list-group-item">Nome: <strong></strong></li>
+                                        <li class="list-group-item">Senha: <strong>*******</strong></li>
+                                    </ul>
+                                    <a href="#" class="btn btn-primary">Editar Perfil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="minhas-vendas" role="tabpanel" aria-labelledby="minhas-vendas-tab">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                <!-- Cards de Minhas Vendas -->
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -42,14 +42,20 @@ namespace AppWebUnisuam.Controllers
             }
 
             var token = TokenService.GenerateTokenJwt(usuario, DateTime.Now.AddHours(3));
-
-            //ViewBag.AuthToken = token;
+            var userId = _context.Cadastro.FirstOrDefault(e => e.Email == request.Email).Id;
 
             Response.Cookies.Append("AuthToken", token, new CookieOptions
             {
-                Expires = DateTime.Now.AddHours(3),
+                Expires = DateTime.Now.AddMinutes(30),
                 HttpOnly = true
             });
+
+            Response.Cookies.Append("userid", userId.ToString(), new CookieOptions
+            {
+                Expires = DateTime.Now.AddMinutes(30),
+                HttpOnly = true
+            });
+
 
             if (usuario.Perfil == "Admin" || usuario.Perfil == "MASTER")
             {
