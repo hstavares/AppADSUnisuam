@@ -35,6 +35,12 @@
         border-radius: 4px;
         cursor: pointer;
     }
+
+    @@media print {
+        #printbtn {
+            display: none;
+        }
+    }
 </style>
 
 <h2>Detalhes da Nota Fiscal</h2>
@@ -84,4 +90,4 @@
     </tr>
 </table>
 
-<a href="#" onclick="window.print(); return false;" class="btn btn-primary">Imprimir</a>
+<a href="#" onclick="window.print(); return false;" class="btn btn-primary" id="printbtn">Imprimir</a>
